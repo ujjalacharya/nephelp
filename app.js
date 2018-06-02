@@ -20,7 +20,9 @@ global.User = require('./models/user')
 
 app.use(express.static('public'))
 // app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
+// app.set('view engine', 'hbs');
+app.set('view engine', 'html');
+app.engine('html', require('hbs').__express); 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
@@ -41,15 +43,15 @@ app.get('/about', (req, res) => {
 })
 
 app.get('/contact', (req, res) => {
-    res.render('contact.ejs')
+    res.render('contact.hbs')
 })
 
 app.get('/login', (req, res) => {
-    res.render('login.ejs', { title: 'login' })
+    res.render('login.hbs', { title: 'login' })
 })
 
 app.get('/register', (req, res) => {
-    res.render('register.ejs', { title: 'Register' })
+    res.render('register.hbs', { title: 'Register' })
 })
 app.post('/register', (req, res) => {
     req.checkBody('name', 'Empty Name').notEmpty();
