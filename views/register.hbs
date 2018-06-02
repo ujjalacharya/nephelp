@@ -1,10 +1,10 @@
 <form class="form-signin" method="post">
   {{#each errorMessages}}
-    <div class="alert alert-danger">
-        {{this.msg}}
-    </div>
+  <div class="alert alert-danger">
+    {{this.msg}}
+  </div>
   {{/each}}
-  
+
   <h2 class="form-signin-heading text-center">New Account</h2>
   <br/>
 
@@ -12,9 +12,18 @@
   <br/>
   <input type="email" name="email" class="form-control" placeholder="Email" require="" autofocus="">
   <br/>
-  <input type="password" name="password" class="form-control" placeholder="Password" require="" >
+  <input type="date" name="dob" class="form-control" require="" autofocus="">
+  <br/>
+  <input type="password" name="password" class="form-control" placeholder="Password" require="">
   <br/>
   <input type="password" name="confirmPassword" class="form-control" placeholder="Confirm Password" require="">
+  <br/>
+  <h4>Payment Gateway</h4>
+  <label>
+    <input type="checkbox" value="">Esewa</label>
+  <label>
+    <input type="checkbox" value="">Khalti</label>
+  <br/>
   <br/>
   <button type="submit" class="btn btn-lg btn-primary btn-block">Sign Up</button>
 

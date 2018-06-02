@@ -11,6 +11,10 @@ var userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  dob: {
+    type: Date,
+    required: true
+  },
   hash: String,
   salt: String
 });
