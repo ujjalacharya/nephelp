@@ -1,106 +1,75 @@
-const express = require('express');
-const app = express();
-const nodemailer = require('nodemailer')
-const bodyParser = require('body-parser');
-const expressValidator = require('express-validator')
-const mongoose = require('mongoose');
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
 
-const PORT = 8080;
+var mongoose = require('mongoose');
+var passport = require('passport');
+var session = require('express-session');
 
-const confident = require('./config/confident')
+require('./passport');
+var config = require('./config');
 
-mongoose.connect(confident.dbConnstring, (err) => {
-    if (err) {
-        console.log(err)
-    } else {
-        console.log('Successfully connected to the database')
-    }
-})
-global.User = require('./models/user')
+var indexRoute = require('./routes/index');
+var authRoute = require('./routes/auth');
 
-app.use(express.static('public'))
-// app.set('view engine', 'ejs');
-// app.set('view engine', 'hbs');
-app.set('view engine', 'html');
-app.engine('html', require('hbs').__express); 
+mongoose.connect(config.dbConnstring);
+global.User = require('./models/user');
+
+var app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 
-app.get('/', (req, res) => {
-    res.render('index.html')
-})
+app.use(cookieParser());
+app.use(session({
+    secret: config.sessionKey,
+    resave: false,
+    saveUninitialized: true
+}));
 
-app.get('/chat', (req, res) => {
-    res.render('chat.html')
-})
-app.get('/discussion', (req, res) => {
-    res.render('dis.html')
-})
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.get('/about', (req, res) => {
-    res.render('about.html')
-})
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/contact', (req, res) => {
-    res.render('contact.hbs')
-})
-
-app.get('/login', (req, res) => {
-    res.render('login.hbs', { title: 'login' })
-})
-
-app.get('/register', (req, res) => {
-    res.render('register.hbs', { title: 'Register' })
-})
-app.post('/register', (req, res) => {
-    req.checkBody('name', 'Empty Name').notEmpty();
-    req.checkBody('email', 'Invalid Email').isEmail();
-    req.checkBody('email', 'Empty Email').notEmpty();
-    let errors = req.validationErrors();
-    if (errors) {
-        res.render('register.ejs', {
-            title: 'Register',
-            name: req.body.name,
-            email: req.body.email,
-            errorMessages: errors
-        })
-    } else {
-        res.render('thank.ejs')
-    }
-
-})
-
-app.post('/contact/send', (req, res, next) => {
-    var transporter = nodemailer.createTransport({
-        service: "Gmail",
-        auth: {
-            user: confident.username,
-            pass: confident.pass
-        }
-    });
-    var mailOptions = {
-        from: "'Test Tester' <test@test.com>",
-        to: "acharyaujjal1@gmail.com",
-        subject: "Test subject",
-        text: "You have a submission from Name: " + req.body.name + " Email: " + req.body.email + " Message: " + req.body.problem,
-        html: "<p>You have a submission from...</p> <ul><li> Name: " + req.body.name +
-            "</li><li> Email: " + req.body.email +
-            "</li></li> Subject: " + req.body.subject +
-            "<br /></li></li> Message: " + req.body.message + "</li>"
-
-    };
-
-    transporter.sendMail(mailOptions, function (err, info) {
-        if (err) {
-            return console.log(err);
-        }
-        console.log("Message has been sent...");
-        res.redirect("/");
-
-    });
+app.use(function(req, res, next) {
+  if (req.isAuthenticated()) {
+    res.locals.user = req.user;
+  }
+  next();
 });
 
-app.listen(PORT, () => {
-    console.log(`App started at port ${PORT}`)
-})
+app.use('/', indexRoute);
+app.use('/', authRoute);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;
