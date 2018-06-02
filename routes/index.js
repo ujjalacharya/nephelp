@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+const path = require('path')
 var nodemailer = require('nodemailer');
 var config = require('../config');
 var transporter = nodemailer.createTransport(config.mailer);
@@ -12,6 +12,22 @@ router.get('/', function(req, res, next) {
 
 router.get('/about', function(req, res, next) {
   res.render('about', { title: 'NepHelp'});
+});
+
+router.get('/explore', (req, res)=>{
+  res.render('explore', {title: 'NeplHelp'})
+})
+router.get('/disc', (req, res)=>{
+  res.render('disc', {title: 'NeplHelp'})
+})
+router.get('/gallery', (req, res)=>{
+  res.render('gallery', {title: 'NeplHelp'})
+})
+router.get('/stat', (req, res)=>{
+  res.render('stat', {title: 'NeplHelp'})
+})
+router.get("/faq", (req, res)=>{
+  res.sendFile(path.join(__dirname, "/download/faq.pdf"));
 });
 
 router.route('/contact')
