@@ -19,7 +19,142 @@
 <link rel="stylesheet" href="assets/css/Footer-with-social-icons.css">
 <link rel="stylesheet" type="text/css" href="style0.css">
 
+<style>
 
+/*    FOR TESTIMONIAL */
+body {
+	font-family: "Open Sans", sans-serif;
+}
+h2 {
+	color: #333;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+	position: relative;
+	margin: 30px 0 60px;
+}
+h2::after {
+	content: "";
+	width: 100px;
+	position: absolute;
+	margin: 0 auto;
+	height: 3px;
+	background: #8fbc54;
+	left: 0;
+	right: 0;
+	bottom: -10px;
+}
+.col-center {
+	margin: 0 auto;
+	float: none !important;
+}
+.carousel {
+	margin: 50px auto;
+	padding: 0 70px;
+}
+.carousel .item {
+	color: #999;
+	font-size: 14px;
+    text-align: center;
+	overflow: hidden;
+    min-height: 290px;
+}
+.carousel .item .img-box {
+	width: 135px;
+	height: 135px;
+	margin: 0 auto;
+	padding: 5px;
+	border: 1px solid #ddd;
+	border-radius: 50%;
+}
+.carousel .img-box img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	border-radius: 50%;
+}
+.carousel .testimonial {
+	padding: 30px 0 10px;
+}
+.carousel .overview {	
+	font-style: italic;
+}
+.carousel .overview b {
+	text-transform: uppercase;
+	color: #7AA641;
+}
+.carousel .carousel-control {
+	width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    top: 50%;
+	background: none;
+}
+.carousel-control i {
+    font-size: 68px;
+	line-height: 42px;
+    position: absolute;
+    display: inline-block;
+	color: rgba(0, 0, 0, 0.8);
+    text-shadow: 0 3px 3px #e6e6e6, 0 0 0 #000;
+}
+.carousel .carousel-indicators {
+	bottom: -40px;
+}
+.carousel-indicators li, .carousel-indicators li.active {
+	width: 10px;
+	height: 10px;
+	margin: 1px 3px;
+	border-radius: 50%;
+}
+.carousel-indicators li {	
+	background: #999;
+	border-color: transparent;
+	box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+}
+.carousel-indicators li.active {	
+	background: #555;		
+	box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+}
+
+/* FOR RINGS */
+.red.light1 {
+    background-image: url(ring2.svg);
+}
+.red.light2{
+background-image: url(ring3.svg);
+margin-top: -16px;
+}
+.red.light3 {
+    background-image: url(ring1.svg);
+}
+
+.light1,.light2,.light3 {
+    margin: 20px auto;
+    padding-top: 65px;
+    height: 200px;
+    width: 200px;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-family: gotham-bold;
+    background-size: cover;
+    color:black;
+}
+
+.light1,.light2,.light3 div {
+    font-size: 48px;
+    margin-top: -10px;
+    color: black;
+    
+}
+
+.log1{
+	padding-top: 20px;
+	font-size:23px;
+
+}
+</style>
 
 </head>
 
@@ -42,7 +177,7 @@
 		<nav class="main_nav justify-self-end">
 			<ul class="nav_items">
 				<li class="active"><a href="#"><span>Home</span></a></li>
-				<li><a href="http://ujjalsroom-beta.herokuapp.com/"><span>Chat</span></a></li>
+				<li><a href="https://nephelp-chat.herokuapp.com/"><span>Chat</span></a></li>
 				<li><a href="/explore"><span>Explore</span></a></li>
 				<li><a href="/about"><span> About Us</span></a></li>
 				<li><a href="/contact"><span>Email Us</span></a></li>
@@ -52,8 +187,8 @@
                     role = "button" aria-haspopup="true" aria-expanded="false">
                     Problem<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Adolescence</a></li>
-                  <li><a href="#">Mental</a></li>
+                  <li><a href="/sexual">Sexual</a></li>
+                  <li><a href="/mental">Mental</a></li>
                 </ul>
               </li>
 			          <li><a href="/logout">Logout</a></li>

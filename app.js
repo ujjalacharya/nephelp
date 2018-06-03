@@ -15,6 +15,8 @@ var config = require('./config');
 
 var indexRoute = require('./routes/index');
 var authRoute = require('./routes/auth');
+var mentalRoute = require('./routes/mental');
+var sexualRoute = require('./routes/sexual');
 
 mongoose.connect(config.dbConnstring);
 global.User = require('./models/user');
@@ -53,6 +55,8 @@ app.use(function(req, res, next) {
 
 app.use('/', indexRoute);
 app.use('/', authRoute);
+app.use('/', mentalRoute);
+app.use('/', sexualRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

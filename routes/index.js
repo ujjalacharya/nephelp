@@ -53,7 +53,7 @@ router.route('/contact')
         from: 'NepHelp <no-reply@nephelp.com>',
         to: 'acharyaujjal1@gmail.com',
         subject: 'You got a new message from user',
-        text: req.body.message
+        html: 'From: '+req.body.name + '<br />'+'Email: '+ req.body.email+ '<br />'+ 'Message: ' +req.body.message
       };
 
       transporter.sendMail(mailOptions, function (error, info) {

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Doctors | NepHelp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="doc.css" />
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/responsive.css"> 
+    
+
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="super_container">
+    
+    <!-- Header -->
+
+    <header class="header d-flex flex-row justify-content-end align-items-center">
+
+        <!-- Logo -->
+        <div class="logo_container mr-auto">
+            <div class="logo">
+                <img src="images/logo.png" alt="logo">
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="main_nav justify-self-end">
+           	<ul class="nav_items">
+				<li><a href="/"><span>Home</span></a></li>
+				<li><a href="https://nephelp-chat.herokuapp.com/"><span>Chat</span></a></li>
+				<li><a href="/explore"><span>Explore</span></a></li>
+				<li><a href="/about"><span> About Us</span></a></li>
+				<li><a href="/contact"><span>Email Us</span></a></li>
+				{{#if user}}
+			           <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                    role = "button" aria-haspopup="true" aria-expanded="false">
+                    Problem<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                   <li><a href="/sexual">Sexual</a></li>
+                  <li><a href="/mental">Mental</a></li>
+                </ul>
+              </li>
+			          <li><a href="/logout">Logout</a></li>
+				{{else}}
+        			<li><a href="/login"><span>Login</span></a></li>
+					<li><a href="/register"><span>Register</span></a></li>
+				{{/if}}
+			</ul>
+        </nav>
+
+        <!-- Hamburger -->
+        <div class="hamburger_container">
+            <span class="hamburger_text">Menu</span>
+            <span class="hamburger_icon"></span>
+        </div>
+
+    </header>
+
+    <!-- Menu -->
+
+    <div class="fs_menu_overlay"></div>
+    <div class="fs_menu_container">
+        <div class="fs_menu_shapes"><img src="images/menu_shapes.png" alt=""></div>
+        <nav class="fs_menu_nav">
+            <ul class="fs_menu_list">
+                <li><a href="#"><span><span>H</span>Home</span></a></li>
+                <li><a href="#"><span><span>C</span>Chat</span></a></li>
+                <li><a href="#"><span><span>D</span>Discussion Panel</span></a></li>
+                <li><a href="#"><span><span>A</span>About Us</span></a></li>
+                <li><a href="#"><span><span>E</span>Email Us</span></a></li>
+            </ul>
+        </nav>   
+    
+        <div class="fs_social_container d-flex flex-row justify-content-end align-items-center">
+            <ul class="fs_social">
+                <li><a href="#"><i class="fab fa-pinterest trans_300"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook-f trans_300"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter trans_300"></i></a></li>
+
+            </ul>
+        </div>
+    </div>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+<div class="container">
+
+<div class="page-header">
+    <h1>Doctors related to Mental Health </h1>
+</div>
+
+         <div class="row row2">
+            <div class="col-sm-2">
+                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()"> Search</span></h2>
+                
+            </div>
+            <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
+                <div class="row">
+                    <input class="flipkart-navbar-input col-xs-11" type="" placeholder="Search for doctors, location or hospital wise" name="">
+                    <button class="flipkart-navbar-button col-xs-1">
+                        <svg width="15px" height="15px">
+                            <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+
+  </style>
+<!-- Responsive Team Profiles - START -->
+
+<div class="container">
+    <div class="row">
+        
+        <hr />
+        <div class="row pt-md">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 team">
+                <div class="img-box">
+                    <img class="img-responsive" alt="Responsive Team Profiles" src="images/doc1.jpg" />
+                    <ul class="text-center">
+                        <a href="#">
+                            <li><i class="fa fa-facebook"></i></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-twitter"></i></li>
+                        </a>
+                        <a href="/contact">
+                            <li><i class="fa fa-envelope"></i></li>
+                        </a>
+                    </ul>
+                </div>
+                <center><h1> Doctor 1</h1></center>
+                <center><h2>Chabahil, Kathmandu</h2></center>
+                <hr />
+                <li>Om Hospital </li>
+                <li>7 years of Experience</li>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 team">
+                <div class="img-box">
+                    <img class="img-responsive" alt="Responsive Team Profiles" src="images/doc2.jpg" />
+                    <ul class="text-center">
+                        <a href="#">
+                            <li><i class="fa fa-facebook"></i></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-twitter"></i></li>
+                        </a>
+                        <a href="/contact">
+                            <li><i class="fa fa-envelope"></i></li>
+                        </a>
+                    </ul>
+                </div>
+                <center><h1> Doctor 2</h1></center>
+                <center><h2>Koteshwor, Kathmandu</h2></center>
+                <hr />
+                <li>Grande Hospital </li>
+                <li>5 years of Experience</li>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 team">
+                <div class="img-box">
+                    <img class="img-responsive" alt="Responsive Team Profiles" src="images/doc3.jpg" />
+                    <ul class="text-center">
+                        <a href="#">
+                            <li><i class="fa fa-facebook"></i></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-twitter"></i></li>
+                        </a>
+                        <a href="/contact">
+                            <li><i class="fa fa-envelope"></i></li>
+                        </a>
+                    </ul>
+                </div>
+                <center><h1> Doctor 3</h1></center>
+                <center><h2>Basundhara, Kathmandu</h2></center>
+                <hr />
+                <li>Helping Hand Hospital </li>
+                <li>8 years of Experience</li>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 team">
+                <div class="img-box">
+                    <img class="img-responsive" alt="Responsive Team Profiles" src="images/doc4.jpg" />
+                    <ul class="text-center">
+                        <a href="#">
+                            <li><i class="fa fa-facebook"></i></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-twitter"></i></li>
+                        </a>
+                        <a href="/contact">
+                            <li><i class="fa fa-envelope"></i></li>
+                        </a>
+                    </ul>
+                </div>
+               <center><h1> Doctor 3</h1></center>
+                <center><h2>Basundhara, Kathmandu</h2></center>
+                <hr />
+               <li>Om Hospital </li>
+                <li>7 years of Experience</li>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 team">
+                <div class="img-box">
+                    <img class="img-responsive" alt="Responsive Team Profiles" src="images/doc4.jpg" />
+                    <ul class="text-center">
+                        <a href="#">
+                            <li><i class="fa fa-facebook"></i></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-twitter"></i></li>
+                        </a>
+                        <a href="/contact">
+                            <li><i class="fa fa-envelope"></i></li>
+                        </a>
+                    </ul>
+                </div>
+                <center><h1> Doctor 4</h1></center>
+                <center><h2>Kalanki, Kathmandu</h2></center>
+                <hr />
+                <li>Om Hospital </li>
+                <li>7 years of Experience</li>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 team">
+                <div class="img-box">
+                    <img class="img-responsive" alt="Responsive Team Profiles" src="images/doc3.jpg" />
+                    <ul class="text-center">
+                        <a href="#">
+                            <li><i class="fa fa-facebook"></i></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-twitter"></i></li>
+                        </a>
+                        <a href="/contact">
+                            <li><i class="fa fa-envelope"></i></li>
+                        </a>
+                    </ul>
+                </div>
+                <center><h1> Doctor 5</h1></center>
+                <center><h2>koteshwor, Kathmandu</h2></center>
+                <hr />
+               <li>Om Hospital </li>
+                <li>7 years of Experience</li>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 team">
+                <div class="img-box">
+                    <img class="img-responsive" alt="Responsive Team Profiles" src="images/doc2.jpg" />
+                    <ul class="text-center">
+                        <a href="#">
+                            <li><i class="fa fa-facebook"></i></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-twitter"></i></li>
+                        </a>
+                        <a href="/contact">
+                            <li><i class="fa fa-envelope"></i></li>
+                        </a>
+                    </ul>
+                </div>
+                <center><h1> Doctor 6</h1></center>
+                <center><h2>Balkumari, Kathmandu</h2></center>
+                <hr />
+                <li>Om Hospital </li>
+                <li>7 years of Experience</li>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 team">
+                <div class="img-box">
+                    <img class="img-responsive" alt="Responsive Team Profiles" src="images/doc1.jpg" />
+                    <ul class="text-center">
+                        <a href="#">
+                            <li><i class="fa fa-facebook"></i></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-twitter"></i></li>
+                        </a>
+                        <a href="/contact">
+                            <li><i class="fa fa-envelope"></i></li>
+                        </a>
+                    </ul>
+                </div>
+                <center><h1> Doctor 7</h1></center>
+                <center><h2>Chabahil, Kathmandu</h2></center>
+                <hr />
+                <li>Om Hospital </li>
+                <li>7 years of Experience</li>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</div>
+</div>
+</div>
+
+
+<footer class="footer">
+        <div class="container">
+            <div class="row footer_content d-flex flex-sm-row flex-column align-items-center">
+                <div class="col-sm-6 cr text-sm-left text-center">
+                    <a href="#">NepHelp </a> |  <a target="_blank" href="http://www.crescents.com"> Design & Developed by The Crescents </a>
+                </div>
+                <div class="col-sm-6 text-sm-right text-center">
+                    <div class="footer_social_container">
+                        <ul class="footer_social">
+                            <li><a href="#"><i class="fab fa-pinterest trans_300"></i></a></li>
+                            <li><a href="#"><i class="fab fa-facebook-f trans_300"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter trans_300"></i></a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</html>
+<link rel="stylesheet" type="text/css" href="footer.css">

@@ -37,26 +37,11 @@
 		<!-- Main Navigation -->
 		<nav class="main_nav justify-self-end">
 			<ul class="nav_items">
-				<li><a href="/"><span>Home</span></a></li>
-				<li><a href="https://nephelp-chat.herokuapp.com/"><span>Chat</span></a></li>
-				<li><a href="/explore"><span>Explore</span></a></li>
-				<li><a href="/about"><span> About Us</span></a></li>
-				<li class="active"><a href="#"><span>Email Us</span></a></li>
-      			  {{#if user}}
-			           <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                    role = "button" aria-haspopup="true" aria-expanded="false">
-                    Problem<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                	<li><a href="/sexual">Sexual</a></li>
-                  <li><a href="/mental">Mental</a></li>
-                </ul>
-              </li>
-			          <li><a href="/logout">Logout</a></li>
-				{{else}}
-        			<li><a href="/login"><span>Login</span></a></li>
-					<li><a href="/register"><span>Register</span></a></li>
-				{{/if}}
+				<li><a href="index.html"><span>home</span></a></li>
+				<li><a href="http://ujjalsroom-beta.herokuapp.com/"><span>chat</span></a></li>
+				<li><a href="explore.html"><span>Explore</span></a></li>
+				<li><a href="about.html"><span>about us</span></a></li>
+				<li><a href="email.html"><span>email us</span></a></li>
 			</ul>
 		</nav>
 
@@ -106,17 +91,12 @@
 						
 						<!-- Contact Us Form -->
 						<div class="contact_form_container">
-							<form id="reply_form" method="post">
-								{{#each errorMessages}}
-								<div class="alert alert-danger">
-								{{this.msg}}
-								</div>
-								{{/each}}
+							<form id="reply_form" action="post">
 								<div>
-									<input id="contact_form_name" class="input_field contact_form_name" type="text" placeholder="Name" required="required" data-error="Name is required." name="name" value={{name}}>
-									<input id="contact_form_email" class="input_field contact_form_email" type="email" placeholder="E-mail" required="required" data-error="Valid email is required." name="email" value={{email}}>
-									
-									<textarea id="contact_form_message" class="text_field contact_form_message" name="message"  placeholder="Message" rows="4" required data-error="Please, write us a message." name="message">{{message}}</textarea>
+									<input id="contact_form_name" class="input_field contact_form_name" type="text" placeholder="Name" required="required" data-error="Name is required.">
+									<input id="contact_form_email" class="input_field contact_form_email" type="email" placeholder="E-mail" required="required" data-error="Valid email is required.">
+									<input id="contact_form_subject" class="input_field contact_form_subject" type="text" placeholder="Subject" required="required" data-error="Subject is required.">
+									<textarea id="contact_form_message" class="text_field contact_form_message" name="message"  placeholder="Message" rows="4" required data-error="Please, write us a message."></textarea>
 								</div>
 								<div>
 									<button id="contact_form_submit" type="submit" class="contact_submit_btn trans_300" value="Submit">
@@ -130,32 +110,15 @@
 					</div>
 				</div>
                 
-				
-				<!-- Sidebar -->
-				<div class="col-lg-4">
-					<div class="contact_sidebar">
-						
-						<!-- Contact Info -->
-						<div class="sidebar_section">
-							<div class="sidebar_contact_info">
-								<div class="sidebar_title">contact info</div>
-								<ul>
-									<li>NepHelp
-									<br>
-									Kathmandu</li>
-									<li>contact@nephelp.com</li>
-									<li>01-6666666</li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</div>
-
-			</div>
+		
 
 		
-	<br> <br> <br> <br>
+</div>
+</div>
+</div>
+
+</div>
+</div>
 	<!-- Footer -->
 
 	<footer class="footer">
