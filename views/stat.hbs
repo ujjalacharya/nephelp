@@ -36,11 +36,26 @@
 		<!-- Main Navigation -->
 		<nav class="main_nav justify-self-end">
 			<ul class="nav_items">
-				<li><a href="index.html"><span>home</span></a></li>
-				<li><a href="http://ujjalsroom-beta.herokuapp.com/"><span>chat</span></a></li>
-				<li class="active"><a href="explore.html"><span>Explore</span></a></li>
-				<li><a href="about.html"><span>about us</span></a></li>
-				<li><a href="email.html"><span>email us</span></a></li>
+				<li><a href="/"><span>Home</span></a></li>
+				<li><a href="http://ujjalsroom-beta.herokuapp.com/"><span>Chat</span></a></li>
+				<li class="active"><a href="#"><span>Explore</span></a></li>
+				<li><a href="/about"><span> About Us</span></a></li>
+				<li><a href="/contact"><span>Email Us</span></a></li>
+				{{#if user}}
+			           <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                    role = "button" aria-haspopup="true" aria-expanded="false">
+                    Problem<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Adolescence</a></li>
+                  <li><a href="#">Mental</a></li>
+                </ul>
+              </li>
+			          <li><a href="/logout">Logout</a></li>
+				{{else}}
+        			<li><a href="/login"><span>Login</span></a></li>
+					<li><a href="/register"><span>Register</span></a></li>
+				{{/if}}
 			</ul>
 		</nav>
 
